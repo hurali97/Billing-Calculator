@@ -3,7 +3,7 @@ const initialState={
     amount:0,
     summary_item:[],
     summary_amount:[],
-    show:false,
+    show:'',
     summary:[],
 };
 
@@ -30,15 +30,21 @@ const reducer=(state = initialState , action)=>{
             summary: state.summary.concat({ id: Math.random(), item: state.item , amount:state.amount }),
             item:'',
             amount:0,
-            show:true
+            show:'yes'
           
           };
 
+          if((newState.item.length<=0||newState.amount<=0)&&newState.summary.length<=0)
+          return {
+          
+              ...state,
+            
+              show:'none'
+            
+            };
 
     }
-    if(action.type==='summary'){
-        newState.show=!newState.show;
-    }
+  
 
     return newState;
 };

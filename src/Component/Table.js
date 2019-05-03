@@ -38,7 +38,7 @@ function createData(item , amount) {
   id += 1;
   return { id, item , amount};
 }
-
+let sum=0;
 
 class  CustomizedTable extends React.Component {
     constructor(props){
@@ -46,10 +46,18 @@ class  CustomizedTable extends React.Component {
       
     }
 
-    
+  total=()=>{
+    this.props.summary.map(row => (
+      sum+=parseInt(row.amount)
+    ));
+
+    }
+
     render(){
         const {classes}=this.props;
         const summary=this.props.summary;
+      this.total();
+     
         return (
             <Paper className={classes.root}>
               <Table className={classes.table}>
@@ -65,6 +73,7 @@ class  CustomizedTable extends React.Component {
                     <TableRow className={classes.row} key={row.id}>
                       <CustomTableCell align="center" component="th" scope="row">
                         {row.item}
+                        
                       </CustomTableCell>
                       <CustomTableCell align="center">{row.amount}</CustomTableCell>
                 
@@ -72,7 +81,9 @@ class  CustomizedTable extends React.Component {
                   ))}
                 </TableBody>
               </Table>
+              <h3>Total : {sum} </h3>
             </Paper>
+            
           );
     }
   
