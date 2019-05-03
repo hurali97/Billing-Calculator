@@ -19,12 +19,22 @@ const reducer=(state = initialState , action)=>{
         newState.amount=action.value;
     }
     if(action.type==='add'){
-        // newState.summary_item.push(newState.item);
-        // newState.summary_amount.push(newState.amount);
-        newState.summary.push({id:Math.random(),item:newState.item,amount:newState.amount})
-
+ 
         document.getElementById('item').value="";
         document.getElementById('amount').value="";
+
+        if(newState.item.length>0&&newState.amount>0)
+        return {
+        
+            ...state,
+            summary: state.summary.concat({ id: Math.random(), item: state.item , amount:state.amount }),
+            item:'',
+            amount:0,
+            show:true
+          
+          };
+
+
     }
     if(action.type==='summary'){
         newState.show=!newState.show;

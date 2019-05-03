@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { connect } from "react-redux";
-import { InputNumber } from 'antd';
 
 
 class App extends React.Component {
@@ -28,7 +27,7 @@ class App extends React.Component {
          
           
 
-                {     (this.props.show)
+                {/* {     (this.props.show)
                       ?(
                       <div>
                           {this.props.summary.map(function(elem,i){
@@ -42,7 +41,24 @@ class App extends React.Component {
                       </div>
                       )
                       :console.log("no summary")
-                } 
+                }  */}
+
+
+          {(this.props.show)
+            ? (
+              <div>
+                {this.props.summary.map(function (elem, i) {
+                  {
+                    sum += parseInt(elem.amount)
+                  }
+                  return <p key={elem.id}>Item : {elem.item} , Amount : {elem.amount}</p>;
+                })}
+                <p>Total : {sum}
+                </p>
+              </div>
+            )
+            : <h3>No Item !</h3>
+          }
         </div>
       </div>
     );
