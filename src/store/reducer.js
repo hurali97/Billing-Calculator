@@ -13,10 +13,12 @@ const reducer=(state = initialState , action)=>{
 
     if(action.type==='item'){
         newState.item=action.value;
+     
     }
 
     if(action.type==='amount'){
         newState.amount=action.value;
+      
     }
     if(action.type==='add'){
  
@@ -26,7 +28,8 @@ const reducer=(state = initialState , action)=>{
             return {
           
                 ...state,
-              
+                item:'',
+                amount:0,
                 show:'string'
               
               };
@@ -48,7 +51,8 @@ const reducer=(state = initialState , action)=>{
           return {
           
               ...state,
-            
+              item:'',
+              amount:0,
               show:'none'
             
             };

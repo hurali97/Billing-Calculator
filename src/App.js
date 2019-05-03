@@ -32,7 +32,7 @@ class App extends React.Component {
             <Col md={4} sm={10} xs={10}>
               {(this.props.show==='yes')
                 ? (
-                  <CustomizedTable summary={this.props.summary} />
+                  <CustomizedTable summary={this.props.summary} show={this.props.show}/>
                 )
                 :(this.props.show==='none')? <h3>Please Add Items And Amount !</h3>
                 :(this.props.show==='string')? <h3>Please Input A Number In Amount !</h3>
