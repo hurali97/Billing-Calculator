@@ -22,7 +22,16 @@ const reducer=(state = initialState , action)=>{
  
         document.getElementById('item').value="";
         document.getElementById('amount').value="";
-
+        if(isNaN(newState.amount)){
+            return {
+          
+                ...state,
+              
+                show:'string'
+              
+              };
+        }
+        else{
         if(newState.item.length>0&&newState.amount>0)
         return {
         
@@ -33,7 +42,8 @@ const reducer=(state = initialState , action)=>{
             show:'yes'
           
           };
-
+        }
+        
           if((newState.item.length<=0||newState.amount<=0)&&newState.summary.length<=0)
           return {
           

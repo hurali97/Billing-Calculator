@@ -35,6 +35,7 @@ class App extends React.Component {
                   <CustomizedTable summary={this.props.summary} />
                 )
                 :(this.props.show==='none')? <h3>Please Add Items And Amount !</h3>
+                :(this.props.show==='string')? <h3>Please Input A Number In Amount !</h3>
                 :console.log("no")
               }
             </Col>
