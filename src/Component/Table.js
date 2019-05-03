@@ -10,7 +10,6 @@ import Paper from '@material-ui/core/Paper';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
-    backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
   },
   body: {
@@ -20,12 +19,12 @@ const CustomTableCell = withStyles(theme => ({
 
 const styles = theme => ({
   root: {
-    width: '50%',
-    marginTop: theme.spacing.unit * 3,
+    width: '100%',
+    marginTop: theme.spacing.unit * 6,
     overflowX: 'auto',
   },
   table: {
-    minWidth: 700,
+    minWidth: 50,
   },
   row: {
     '&:nth-of-type(odd)': {
@@ -44,29 +43,27 @@ function createData(item , amount) {
 class  CustomizedTable extends React.Component {
     constructor(props){
         super(props);
-       this.state={
-        history:this.props.summary,
-       };
+      
     }
 
     
     render(){
         const {classes}=this.props;
-        const history=this.state.history;
+        const summary=this.props.summary;
         return (
             <Paper className={classes.root}>
               <Table className={classes.table}>
-                <TableHead>
+                <TableHead style={{backgroundColor:'#00b5ad'}}>
                   <TableRow>
-                    <CustomTableCell>Item</CustomTableCell>
+                    <CustomTableCell align='center'>Item</CustomTableCell>
                     <CustomTableCell align="center">Amount($)</CustomTableCell>
                     
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {history.map(row => (
+                  {summary.map(row => (
                     <TableRow className={classes.row} key={row.id}>
-                      <CustomTableCell component="th" scope="row">
+                      <CustomTableCell align="center" component="th" scope="row">
                         {row.item}
                       </CustomTableCell>
                       <CustomTableCell align="center">{row.amount}</CustomTableCell>
