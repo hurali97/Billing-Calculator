@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { connect } from "react-redux";
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -25,6 +26,7 @@ const styles = theme => ({
   },
   table: {
     minWidth: 50,
+  
   },
   row: {
     '&:nth-of-type(odd)': {
@@ -40,6 +42,8 @@ function createData(item , amount) {
 }
 let sum=0;
 let temp=0;
+let OverallCost=[];
+
 
 class  CustomizedTable extends React.Component {
     constructor(props){
@@ -48,26 +52,36 @@ class  CustomizedTable extends React.Component {
     }
 
   total=()=>{
-    this.props.summary.map(row => (
-      sum+=parseInt(row.amount)
-    ));
-temp=sum;
-sum=0;
+    OverallCost.map(row => (
+      sum+=parseInt(row)
+      
+    )
+    );
+    temp=sum;
+    sum=0;
+    OverallCost=[];
     }
+
+    costpush=(amount,quantity)=>{
+      OverallCost.push((amount*quantity));
+      
+    }
+    
 
     render(){
         const {classes}=this.props;
         const summary=this.props.summary;
-      this.total();
+     
      
         return (
-            <Paper className={classes.root}>
+            <Paper className={classes.root} style={{height: '80%'}}>
               <Table className={classes.table}>
                 <TableHead style={{backgroundColor:'#00b5ad'}}>
                   <TableRow>
                     <CustomTableCell align='center'>Item</CustomTableCell>
-                    <CustomTableCell align="center">Amount($)</CustomTableCell>
-                    
+                    <CustomTableCell align='center'>Quantity</CustomTableCell>
+                    <CustomTableCell align="center">Unit Cost($)</CustomTableCell>
+                    <CustomTableCell align="center">OverAll Cost($)</CustomTableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -79,13 +93,20 @@ sum=0;
                         {row.item}
                         
                       </CustomTableCell>
+                      <CustomTableCell align="center">{row.quantity}</CustomTableCell>
                       <CustomTableCell align="center">{row.amount}</CustomTableCell>
-                
+                      <CustomTableCell align="center">{(row.amount*row.quantity)}</CustomTableCell>
+                      {
+                       this.costpush(row.amount,row.quantity)
+                      }
                     </TableRow>
                   ))
                   }
                 </TableBody>
               </Table>
+              {
+                 this.total()
+              }
               <h3>Total : {temp} </h3>
            
             </Paper>
