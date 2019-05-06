@@ -19,7 +19,10 @@ const reducer = (state = initialState, action) => {
         newState.quantity = action.value;
 
     }
+    if (action.type === 'unit') {
+        newState.unit = action.value;
 
+    }
     if (action.type === 'amount') {
         newState.amount = action.value;
 
@@ -44,7 +47,8 @@ const reducer = (state = initialState, action) => {
                 return {
 
                     ...state,
-                    summary: state.summary.concat({ id: Math.random(), item: state.item,quantity: state.quantity, amount: state.amount }),
+                    summary: state.summary.concat({ id: Math.random(), item: state.item,quantity: state.quantity,
+                        unit:state.unit, amount: state.amount }),
                     item: '',
                     amount: 0,
                     show: 'yes',

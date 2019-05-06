@@ -80,6 +80,7 @@ class  CustomizedTable extends React.Component {
                   <TableRow>
                     <CustomTableCell align='center'>Item</CustomTableCell>
                     <CustomTableCell align='center'>Quantity</CustomTableCell>
+                    <CustomTableCell align='center'>Unit</CustomTableCell>
                     <CustomTableCell align="center">Unit Cost($)</CustomTableCell>
                     <CustomTableCell align="center">OverAll Cost($)</CustomTableCell>
                   </TableRow>
@@ -94,6 +95,7 @@ class  CustomizedTable extends React.Component {
                         
                       </CustomTableCell>
                       <CustomTableCell align="center">{row.quantity}</CustomTableCell>
+                      <CustomTableCell align="center">{row.unit}</CustomTableCell>
                       <CustomTableCell align="center">{row.amount}</CustomTableCell>
                       <CustomTableCell align="center">{(row.amount*row.quantity)}</CustomTableCell>
                       {
@@ -102,6 +104,7 @@ class  CustomizedTable extends React.Component {
                     </TableRow>
                   ))
                   }
+               
                 </TableBody>
               </Table>
               {

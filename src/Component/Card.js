@@ -9,6 +9,8 @@ import TextField from '@material-ui/core/TextField';
 import { Container, Row, Col } from 'react-grid-system';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { connect } from "react-redux";
+import MenuItem from '@material-ui/core/MenuItem';
+import Unit from './Unit';
 
 
 const styles = {
@@ -29,11 +31,13 @@ const styles = {
     table: {
         minWidth: 50,
     },
+
 };
+
 
 function SimpleCard(props) {
 
-   
+    const { classes } = props;
     return (
 
 
@@ -44,7 +48,7 @@ function SimpleCard(props) {
                 <Col md={4} sm={10} xs={10}>
 
 
-                    <Card  style={{
+                    <Card style={{
                         marginTop: '20px', border: '1px solid darkgray',
                         background: 'linear-gradient(to right, #9796f0,#fbc7d4)'
                     }}>
@@ -66,6 +70,8 @@ function SimpleCard(props) {
                                     />
 
                                     <br></br>
+                                    <Unit />
+                                    <br></br>
                                     <TextField
                                         id="quantity"
                                         label="Quantity"
@@ -84,7 +90,7 @@ function SimpleCard(props) {
                                         onChange={props.onAmount}
                                         InputProps={{
                                             startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                                          }}
+                                        }}
                                     />
                                     <br></br>
                                     <Button size="small" style={{ marginTop: '2vh', backgroundColor: '#00b5ad', color: 'white' }} onClick={props.onAdd} variant="contained"  >
@@ -110,22 +116,22 @@ SimpleCard.propTypes = {
 
 const mapStateToProps = state => {
     return {
-      item: state.item,
-      amount: state.amount,
-      quantity: state.quantity,
+        item: state.item,
+        amount: state.amount,
+        quantity: state.quantity,
     };
-  };
-  
-  const mapDispachToProps = dispatch => {
+};
+
+const mapDispachToProps = dispatch => {
     return {
-      onItem: (event) => dispatch({ type: "item", value: event.target.value }),
-      onQuantity: (event) => dispatch({ type: "quantity", value: event.target.value }),
-      onAmount: (event) => dispatch({ type: "amount", value: event.target.value }),
-      onAdd: () => dispatch({ type: "add"}),
+        onItem: (event) => dispatch({ type: "item", value: event.target.value }),
+        onQuantity: (event) => dispatch({ type: "quantity", value: event.target.value }),
+        onAmount: (event) => dispatch({ type: "amount", value: event.target.value }),
+        onAdd: () => dispatch({ type: "add" }),
     };
-  };
-  
-  export default connect(
+};
+
+export default connect(
     mapStateToProps,
     mapDispachToProps
-  )(SimpleCard);
+)(SimpleCard);

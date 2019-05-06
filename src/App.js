@@ -3,7 +3,9 @@ import './App.css';
 import { connect } from "react-redux";
 import CustomizedTable from './Component/Table';
 import { Container, Row, Col } from 'react-grid-system';
-import SimpleCard from './Component/Card'
+import SimpleCard from './Component/Card';
+
+
 
 
 
@@ -17,6 +19,7 @@ class App extends React.Component {
       <div className="App">
 
         {/* <SimpleCard onItem={this.props.onItem} onAmount={this.props.onAmount} onAdd={this.props.onAdd} /> */}
+
 
         <SimpleCard />
 
@@ -33,7 +36,7 @@ class App extends React.Component {
                   <CustomizedTable summary={this.props.summary} />
                 )
                 : (this.props.show === 'none') ? <h3>Please Add Items, Quantity And Amount !</h3>
-                  : (this.props.show === 'string') ? <h3>Please Input A Number In Amount/Quantity !</h3>
+                : (this.props.show === 'string') ? <h3>Please Input A Number In Amount/Quantity !</h3>
                     : console.log("no")
               }
             </Col>
@@ -55,7 +58,7 @@ const mapStateToProps = state => {
   return {
     show: state.show,
     summary: state.summary,
-  };
+      };
 };
 
 const mapDispachToProps = dispatch => {
