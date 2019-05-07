@@ -84,7 +84,7 @@ function SimpleCard(props) {
 
                                     <TextField
                                         id="amount"
-                                        label="Amount "
+                                        label="Amount Per Item"
                                         margin="normal"
                                         variant="outlined"
                                         onChange={props.onAmount}
