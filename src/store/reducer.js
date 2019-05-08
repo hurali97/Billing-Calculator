@@ -27,49 +27,70 @@ const reducer = (state = initialState, action) => {
         newState.amount = action.value;
 
     }
+    if (action.type === 'bill') {
+        console.log("wow")
+        return {
+
+            ...state,
+            item: '',
+            amount: 0,
+            show: '',
+            quantity: 0,
+            summary: [],
+            unit: ''
+        };
+
+    }
     if (action.type === 'add') {
 
         document.getElementById('item').value = "";
         document.getElementById('amount').value = "";
         document.getElementById('quantity').value = "";
-        if (isNaN(newState.amount)||isNaN(newState.quantity)) {
+        if (isNaN(newState.amount) || isNaN(newState.quantity)) {
             return {
 
                 ...state,
                 item: '',
                 amount: 0,
                 show: 'string',
-                quantity:0,
+                quantity: 0,
+                unit: ''
             };
         }
         else {
-            if (newState.item.length > 0 && newState.amount > 0&& newState.quantity > 0)
+            if (newState.item.length > 0 && newState.amount > 0 && newState.quantity > 0)
                 return {
 
                     ...state,
-                    summary: state.summary.concat({ id: Math.random(), item: state.item,quantity: state.quantity,
-                        unit:state.unit, amount: state.amount }),
+                    summary: state.summary.concat({
+                        id: Math.random(), item: state.item, quantity: state.quantity,
+                        unit: state.unit, amount: state.amount
+                    }),
                     item: '',
                     amount: 0,
                     show: 'yes',
-                    quantity:0,
+                    quantity: 0,
+                    unit: ''
                 };
         }
 
         // && newState.summary.length <= 0
 
-        if ((newState.item.length <= 0 || newState.amount <= 0|| newState.quantity <= 0))
+        if ((newState.item.length <= 0 || newState.amount <= 0 || newState.quantity <= 0)) {
             return {
 
                 ...state,
                 item: '',
                 amount: 0,
                 show: 'none',
-                quantity:0,
-
+                quantity: 0,
+                unit: ''
             };
+        }
+      
 
     }
+
 
 
     return newState;

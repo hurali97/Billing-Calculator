@@ -4,12 +4,13 @@ import { connect } from "react-redux";
 import CustomizedTable from './Component/Table';
 import { Container, Row, Col } from 'react-grid-system';
 import SimpleCard from './Component/Card';
-
+import Button from '@material-ui/core/Button';
 
 
 
 
 class App extends React.Component {
+
 
   render() {
    
@@ -33,7 +34,13 @@ class App extends React.Component {
             <Col md={6} sm={10} xs={10}>
               {(this.props.show === 'yes')
                 ? (
+                  <div>
                   <CustomizedTable summary={this.props.summary} />
+                  <Button size="small" style={{ marginTop: '2vh', backgroundColor: '#00b5ad', color: 'white' }} onClick={this.props.onNewBill} variant="contained"  >
+                  New Bill
+                 </Button>
+                <br></br>
+                 </div>
                 )
                 : (this.props.show === 'none') ? <h3>Please Add Items, Quantity And Amount !</h3>
                 : (this.props.show === 'string') ? <h3>Please Input A Number In Amount/Quantity !</h3>
@@ -58,12 +65,13 @@ const mapStateToProps = state => {
   return {
     show: state.show,
     summary: state.summary,
+    
       };
 };
 
 const mapDispachToProps = dispatch => {
   return {
-
+    onNewBill: () => dispatch({ type: "bill" }),
   };
 };
 
