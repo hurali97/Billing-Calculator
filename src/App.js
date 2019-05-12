@@ -22,7 +22,7 @@ class App extends React.Component {
         {/* <SimpleCard onItem={this.props.onItem} onAmount={this.props.onAmount} onAdd={this.props.onAdd} /> */}
         <Helmet>
         <title>Billing Calculator</title>
-        <meta name="description" content="Billing Calculator" />
+        <meta name="description" content="A Billing Calculator to help you with your calculations of groceries and other stuff" />
         <meta name="keywords" content="billing-calculator,billing,grocery,calculator" />
       </Helmet>
 
