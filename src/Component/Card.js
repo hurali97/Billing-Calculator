@@ -64,6 +64,7 @@ function SimpleCard(props) {
                                     <TextField
                                         id="item"
                                         label="Item"
+                                        placeholder="Item Name"
                                         margin="normal"
                                         variant="outlined"
                                         onChange={props.onItem}
@@ -75,6 +76,7 @@ function SimpleCard(props) {
                                     <TextField
                                         id="quantity"
                                         label="Quantity"
+                                        
                                         margin="normal"
                                         variant="outlined"
                                         onChange={props.onQuantity}
@@ -84,7 +86,8 @@ function SimpleCard(props) {
 
                                     <TextField
                                         id="amount"
-                                        label="Amount Per Item"
+                                        label="Amount"
+                                        placeholder="Amount Per Item"
                                         margin="normal"
                                         variant="outlined"
                                         onChange={props.onAmount}
