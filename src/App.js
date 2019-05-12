@@ -5,7 +5,7 @@ import CustomizedTable from './Component/Table';
 import { Container, Row, Col } from 'react-grid-system';
 import SimpleCard from './Component/Card';
 import Button from '@material-ui/core/Button';
-
+import { Helmet } from "react-helmet";
 
 
 
@@ -20,7 +20,11 @@ class App extends React.Component {
       <div className="App">
 
         {/* <SimpleCard onItem={this.props.onItem} onAmount={this.props.onAmount} onAdd={this.props.onAdd} /> */}
-
+        <Helmet>
+        <title>Billing Calculator</title>
+        <meta name="description" content="Billing Calculator" />
+        <meta name="keywords" content="billing-calculator,billing,grocery,calculator" />
+      </Helmet>
 
         <SimpleCard />
 
