@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import CustomizedTable from './Component/Table';
 import { Container, Row, Col } from 'react-grid-system';
 import SimpleCard from './Component/Card';
+import Excel from './Component/Excel';
 import Button from '@material-ui/core/Button';
 import { Helmet } from "react-helmet";
 
@@ -43,6 +44,7 @@ class App extends React.Component {
                   <Button size="small" style={{ marginTop: '2vh', backgroundColor: '#00b5ad', color: 'white' }} onClick={this.props.onNewBill} variant="contained"  >
                   New Bill
                  </Button>
+                 < Excel/>
                 <br></br>
                  </div>
                 )
@@ -53,6 +55,7 @@ class App extends React.Component {
             </Col>
 
             <Col md={3} sm={1} xs={1}>
+          
             </Col>
           </Row>
         </Container>
