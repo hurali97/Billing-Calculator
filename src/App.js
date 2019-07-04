@@ -25,6 +25,7 @@ class App extends React.Component {
           <title>Billing Calculator</title>
           <meta name="description" content="A Billing Calculator to help you with your calculations of groceries and other stuff" />
           <meta name="keywords" content="billing-calculator,billing,grocery,calculator" />
+          <meta name="google-site-verification" content="6C-mhti-M5cFIVn71AUmsmbXV0H-02S0P-MSIYKDIsQ" />
         </Helmet>
         <Particles style={{
           position: 'fixed ', zIndex: '-1', top: '0',
